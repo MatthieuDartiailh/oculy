@@ -14,7 +14,7 @@ package first::
     pip install build
 
 OThis should create a `build/` folder as well as a `dist/` folder
-(don’t forget to add these to your `.gitignore`, if they aren’t in there already.
+(don't forget to add these to your `.gitignore`, if they aren't in there already.
 
 you can now build your package by running::
 
@@ -37,7 +37,12 @@ do so by running::
 
 from the directory where the `pyproject.toml` resides. Any changes you make to the source code
 will take immediate effect.
+Now you can run oculy by typing either::
 
-    python -m  oculy
+    oculy
+
+or::
+
+    python -m oculy
 
 The second option allow you to see the program console output and can be useful to debug issues.
