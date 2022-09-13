@@ -7,7 +7,7 @@ on:
     branches:
       - main
     paths:
-      - .github/workflows/ci.yml
+      - .github/workflows/ci.yaml
       - "oculy/**"
       - pyproject.toml
 
