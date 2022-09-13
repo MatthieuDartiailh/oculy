@@ -57,7 +57,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r test_requirements.txt
       - name: Install project
+        # install dev version of gild since we do not have a release
         run: |
+          pip install git+https://github.com/MatthieuDartiailh/gild#egg=gild[qt6-pyside]
           pip install .
       - name: Test with pytest
         run: |
