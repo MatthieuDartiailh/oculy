@@ -19,12 +19,13 @@ os.environ.setdefault("PYTEST_QT_API", QT_API)
 
 pytest_plugins = ("gild.testing.fixtures",)
 
+
 @pytest.fixture
 def app_dir_storage(monkeypatch, tmpdir) -> pathlib.Path:
     """Path at which the file storing the app dir location is stored."""
     monkeypatch.setattr(pathlib.Path, "home", lambda: pathlib.Path(str(tmpdir)))
 
-    yield pathlib.Path(str(tmpdir), f".oculy")
+    yield pathlib.Path(str(tmpdir), ".oculy")
 
 
 @pytest.fixture
@@ -36,4 +37,3 @@ def app_dir(tmpdir, app_dir_storage):
         toml.dump(dict(app_path=str(app_dir)), f)
 
     yield app_dir
-
