@@ -12,8 +12,8 @@ from matplotlib.axes import Axes
 from matplotlib.container import BarContainer
 from matplotlib.lines import Line2D
 
-from oculy.plotting.plots import Plot1DBarProxy, Plot1DLineProxy
 from oculy.plotting.backends import resolver
+from oculy.plotting.plots import Plot1DBarProxy, Plot1DLineProxy
 
 
 class Matplotlib1DLineProxy(Plot1DLineProxy):
