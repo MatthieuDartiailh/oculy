@@ -1,5 +1,5 @@
 # --------------------------------------------------------------------------------------
-# Copyright 2021 by Oculy Authors, see git history for more details.
+# Copyright 2021-2022 by Oculy Authors, see git history for more details.
 #
 # Distributed under the terms of the BSD license.
 #
@@ -13,7 +13,7 @@ from matplotlib.container import BarContainer
 from matplotlib.lines import Line2D
 
 from oculy.plotting.plots import Plot1DBarProxy, Plot1DLineProxy
-from src.oculy.plotting.backends import resolver
+from oculy.plotting.backends import resolver
 
 
 class Matplotlib1DLineProxy(Plot1DLineProxy):
