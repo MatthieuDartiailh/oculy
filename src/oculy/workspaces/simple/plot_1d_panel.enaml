@@ -1,5 +1,5 @@
 # --------------------------------------------------------------------------------------
-# Copyright 2020-2021 by Oculy Authors, see git history for more details.
+# Copyright 2020-2022 by Oculy Authors, see git history for more details.
 #
 # Distributed under the terms of the BSD license.
 #
@@ -30,6 +30,7 @@ from gild.utils.widgets.qt_list_str_widget import QtListStrWidget
 from oculy.plotting.plot_widget import FigureWidget
 from .mask_view import MaskView
 
+
 enamldef DataSelection1DPlot(Page):
     """Selection for generating 1D plots."""
 
@@ -42,11 +43,15 @@ enamldef DataSelection1DPlot(Page):
     title = "1D plots data selection"
 
     Container:
+        padding = 2
+
         GroupBox:
             title = "X axis"
             flat = True
             visible << not common_xaxis
+            padding = 2
             QtListStrWidget:
+                resist_height = "weak"
                 items = []
                 items << list(workspace.file_content)
                 items ::
@@ -58,6 +63,7 @@ enamldef DataSelection1DPlot(Page):
         GroupBox:
             title = "Y axes"
             flat = True
+            padding = 2
             QtListStrWidget:
                 multiselect = True
                 sort = False
@@ -71,6 +77,7 @@ enamldef DataSelection1DPlot(Page):
         GroupBox:
             title = "Filtering"
             flat = True
+            padding = 2
             ListEditor(MaskView): m_ed:
                 m_ed.model = plot_model
                 m_ed.iterable_name = "filters"
@@ -106,6 +113,7 @@ enamldef DataSelection1DPanel(DockItem):
                 hbox(auto_re, re)
             )
         ]
+        padding = 2
 
         Label: lab_plt_nb:
             text = "# plots"
@@ -126,6 +134,7 @@ enamldef DataSelection1DPanel(DockItem):
             visible << common_xaxis.checked
             title = "X axis"
             flat = True
+            padding = 2
             QtListStrWidget:
                 sort = False
                 items << list(workspace.file_content)
