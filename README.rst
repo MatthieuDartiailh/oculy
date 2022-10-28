@@ -8,15 +8,9 @@ To install it directly from GitHub, you can::
 
     pip install git+https://github.com/MatthieuDartiailh/oculy
 
-Once installed Oculy can be started by either running::
-
-    oculy
-
-or::
+Once installed Oculy can be started by running::
 
     python -m  oculy
-
-The second option allow you to see the program console output and can be useful to debug issues.
 
 
 Installing a development version

@@ -20,6 +20,7 @@ classifiers = [
 ]
 dependencies = [
     "gild[qt6-pyside]",
+    "pyside6<6.4",
     "numpy",
     "xarray",
     "matplotlib",
@@ -36,10 +37,10 @@ csv = ["pandas"]
 homepage = "https://github.com/MatthieuDartiailh/oculy"
 documentation = "https://oculy.readthedocs.io/en/latest/"
 repository = "https://github.com/MatthieuDartiailh/oculy"
-changelog = "https://github.com/MatthieuDartiailh/oculy/blob/main/doc/changelog.rst"
+# ADD a changelog
 
 [project.gui-scripts]
-main = "oculy:__main__"
+oculy = "oculy:__main__"
 
 [build-system]
 requires = ["setuptools>=64", "wheel", "setuptools_scm[toml]>=3.4.3"]
