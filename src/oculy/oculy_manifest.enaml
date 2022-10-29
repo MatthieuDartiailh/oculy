@@ -1,5 +1,5 @@
 # --------------------------------------------------------------------------------------
-# Copyright 2021 by Oculy Authors, see git history for more details.
+# Copyright 2021-2022 by Oculy Authors, see git history for more details.
 #
 # Distributed under the terms of the BSD license.
 #
@@ -9,7 +9,7 @@
 
 """
 from enaml.workbench.api import PluginManifest, Extension
-from enaml.workbench.ui.api import ActionItem, Branding, MenuItem
+from enaml.workbench.ui.api import ActionItem, Branding, ItemGroup, MenuItem
 
 
 enamldef OculyManifest(PluginManifest):
@@ -18,7 +18,8 @@ enamldef OculyManifest(PluginManifest):
     id = "oculy"
 
     Extension:
-        id = "enaml.workbench.ui.branding"
+        id = "oculy.branding"
+        point = 'enaml.workbench.ui.branding'
         Branding:
             title = "Oculy"
 
@@ -41,6 +42,8 @@ enamldef OculyManifest(PluginManifest):
         MenuItem:
             path = "/tools/workspace"
             label = "Select workspace"
+            ItemGroup:
+                id = 'spaces'
         ActionItem:
             path = "/tools/workspace/close"
             label = "Close workspace"

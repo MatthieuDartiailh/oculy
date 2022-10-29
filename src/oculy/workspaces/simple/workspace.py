@@ -11,7 +11,7 @@
 import os
 
 import enaml
-from atom.api import Bool, Dict, List, Str, Typed
+from atom.api import Bool, Dict, List, Str, Typed, set_default
 from enaml.workbench.ui.api import Workspace
 from gild.utils import invoke_command
 from gild.utils.atom_util import (
@@ -98,6 +98,8 @@ class SimpleViewerWorkspace(Workspace):
     update_members_from_preferences = update_members_from_preferences
     preferences_from_members = preferences_from_members
 
+    window_title = set_default("simple")
+
     def start(self):
         """ """
         datastore = self.workbench.get_plugin("oculy.data").datastore
@@ -118,6 +120,7 @@ class SimpleViewerWorkspace(Workspace):
         datastore = self.workbench.get_plugin("oculy.data").datastore
         datastore.store_data({"_simple_viewer/1d": (None, None)})
         datastore.store_data({"_simple_viewer/2d": (None, None)})
+        # FIXME clean up figures
 
     def get_loader_view(self) -> BaseLoaderView:
         """Get a config view for the current loader."""

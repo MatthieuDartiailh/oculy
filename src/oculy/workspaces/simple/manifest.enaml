@@ -11,6 +11,8 @@
 from typing import TYPE_CHECKING
 
 from enaml.workbench.api import Extension, PluginManifest, Workbench
+from enaml.workbench.ui.api import ActionItem
+
 
 if TYPE_CHECKING:
     from .workspace import SimpleViewerWorkspace
@@ -36,3 +38,13 @@ enamldef SimpleViewerManifest(PluginManifest):
         id = "oculy.simple_viewer"
         point = "enaml.workbench.ui.workspaces"
         factory = workspace_factory
+
+    Extension:
+        id = "oculy.simple_viewer.menus"
+        point = "enaml.workbench.ui.actions"
+        ActionItem:
+            path = "/tools/workspace/simple"
+            label = "Simple workspace"
+            group = 'spaces'
+            command = 'enaml.workbench.ui.select_workspace'
+            parameters = {'workspace': 'oculy.simple_viewer'}
