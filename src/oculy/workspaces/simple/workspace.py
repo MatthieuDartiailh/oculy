@@ -159,7 +159,7 @@ class SimpleViewerWorkspace(Workspace):
     #: Watch of the watchdog.
     _watchdog_watch = Typed(ObservedWatch)
 
-    #: Cache of loader paarmeters used by the user in this session.
+    #: Cache of loader parameters used by the user in this session.
     #: Cross-session persistence should be handled through the io plugin.
     _loader_state_cache = Dict(str)
 

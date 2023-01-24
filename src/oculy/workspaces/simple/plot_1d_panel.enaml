@@ -1,5 +1,5 @@
 # --------------------------------------------------------------------------------------
-# Copyright 2020-2022 by Oculy Authors, see git history for more details.
+# Copyright 2020-2023 by Oculy Authors, see git history for more details.
 #
 # Distributed under the terms of the BSD license.
 #
@@ -71,7 +71,7 @@ enamldef DataSelection1DPlot(Page):
                 items << list(workspace.file_content)
                 items ::
                     if items and selected_item not in items:
-                        self.selected_item = items[-1]
+                        self.selected_items = [items[-1]]
                 selected_items := plot_model.selected_y_axes
 
         GroupBox:

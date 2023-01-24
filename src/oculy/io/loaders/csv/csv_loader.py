@@ -31,8 +31,7 @@ class CSVLoader(BaseLoader):
 
     """
 
-    #: Should data file be loaded all at once or should only
-    # the relevant columns
+    #: Should data file be loaded all at once or should only the relevant columns
     #: be loaded.
     eager_load = Bool(True).tag(pref=True)
 
@@ -46,7 +45,7 @@ class CSVLoader(BaseLoader):
 
     def load_data(
         self,
-        columns: Sequence[str],
+        names: Sequence[str],
         masks: Mapping[str, MaskSpecification],
     ) -> Dataset:
         """Load data from the CSV file.
@@ -60,7 +59,7 @@ class CSVLoader(BaseLoader):
             named data, the resulting mask are applied to the requested
             data (see `names`) apply_mask : Callable[ [Dataset, Dataset,
             Mapping[str, MaskSpecification]], Dataset ]
-            allable taking care of applying any in-memory masking required
+            Callable taking care of applying any in-memory masking required
             and taking the data to be masked, the data to generate the mask
             and the mask specification for each mask source data.
 
@@ -76,7 +75,7 @@ class CSVLoader(BaseLoader):
             on disk store.
 
         """
-        required = list(columns) + list(masks)
+        required = list(names) + list(masks)
         if not self.content:
             self.determine_content()
 
@@ -106,7 +105,7 @@ class CSVLoader(BaseLoader):
                     ).to_xarray()
                 )
 
-        data = self._data[columns]
+        data = self._data[names]
         if masks:
             data = self.mask_data(data, self._data[list(masks)], masks)
 
